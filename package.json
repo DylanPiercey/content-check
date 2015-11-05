@@ -1,0 +1,22 @@
+{
+  "name": "content-check",
+  "version": "0.1.1",
+  "description": "Guess the content type of a request body.",
+  "author": "Dylan Piercey <pierceydylan@gmail.com>",
+  "main": "index.js",
+  "browser": {
+    "mime-types": "./browser/mime-types.js",
+    "buffer": "./browser/buffer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DylanPiercey/content-check"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.1.3"
+  },
+  "dependencies": {
+    "mime-types": "^2.1.7"
+  }
+}
