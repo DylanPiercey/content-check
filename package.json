@@ -1,6 +1,6 @@
 {
   "name": "content-check",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Guess the content type of a request body.",
   "author": "Dylan Piercey <pierceydylan@gmail.com>",
   "main": "index.js",

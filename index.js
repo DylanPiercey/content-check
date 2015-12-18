@@ -1,3 +1,5 @@
+"use strict";
+
 var htmlReg = /^\s*</;
 var buffer  = require("buffer").Buffer;
 var lookup  = require("mime-types").lookup;
