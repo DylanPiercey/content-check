@@ -6,6 +6,7 @@
   "browser": {
     "./mime-types.js": "./mime-types.browser.js"
   },
+  "bugs": "https://github.com/DylanPiercey/content-check/issues",
   "dependencies": {
     "is-typeof": "^1.0.3",
     "mime-types": "^2.1.15"
@@ -15,6 +16,13 @@
     "snazzy": "^7.0.0",
     "standard": "^10.0.2"
   },
+  "homepage": "https://github.com/DylanPiercey/content-check",
+  "keywords": [
+    "content-check",
+    "content-type",
+    "mime-type"
+  ],
+  "license": "MIT",
   "main": "index.js",
   "repository": {
     "type": "git",
