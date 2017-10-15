@@ -4,18 +4,30 @@
   "version": "0.1.4",
   "author": "Dylan Piercey <pierceydylan@gmail.com>",
   "browser": {
-    "./mime-types.js": "./mime-types.browser.js"
+    "mime-types": "./dist/mime-types.browser.js"
   },
   "bugs": "https://github.com/DylanPiercey/content-check/issues",
   "dependencies": {
-    "is-typeof": "^1.0.3",
-    "mime-types": "^2.1.15"
+    "is-typeof": "^2.0.2",
+    "mime-types": "^2.1.17"
   },
   "devDependencies": {
-    "mocha": "^3.4.2",
-    "snazzy": "^7.0.0",
-    "standard": "^10.0.2"
+    "@types/mocha": "^2.2.43",
+    "@types/node": "^8.0.34",
+    "coveralls": "^3.0.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.2.3",
+    "mocha": "^4.0.1",
+    "nyc": "^11.2.1",
+    "prettier": "^1.7.4",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.7.0",
+    "tslint-config-prettier": "^1.5.0",
+    "typescript": "^2.5.3"
   },
+  "files": [
+    "dist"
+  ],
   "homepage": "https://github.com/DylanPiercey/content-check",
   "keywords": [
     "content-check",
@@ -23,23 +35,26 @@
     "mime-type"
   ],
   "license": "MIT",
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "tslint -t codeFrame -c tslint.json",
+      "git add"
+    ]
+  },
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/DylanPiercey/content-check"
   },
   "scripts": {
-    "lint": "standard --verbose | snazzy",
-    "test": "npm run lint && mocha ./test/**/*.test.js"
+    "build": "tsc",
+    "coveralls": "cat coverage/lcov.info | coveralls",
+    "format-all": "find {src,test} -name '*.ts' | xargs prettier --write",
+    "mocha": "mocha -r ts-node/register ./test/**/*.test.ts",
+    "precommit": "lint-staged && npm test && npm run build",
+    "test": "nyc --extension=.ts --include=src/**/*.ts --reporter=lcov --reporter=text-summary npm run mocha",
+    "test-ci": "nyc --extension=.ts --include=src/**/*.ts --reporter=lcovonly --reporter=text npm run mocha"
   },
-  "standard": {
-    "globals": [
-      "describe",
-      "it",
-      "before",
-      "beforeEach",
-      "after",
-      "afterEach"
-    ]
-  }
+  "types": "dist/index.d.ts"
 }
