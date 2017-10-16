@@ -1,7 +1,7 @@
 {
   "name": "content-check",
   "description": "Guess the content type of a request body.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Dylan Piercey <pierceydylan@gmail.com>",
   "browser": {
     "mime-types": "./dist/mime-types.browser.js"
