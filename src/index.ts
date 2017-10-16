@@ -7,10 +7,10 @@ const htmlReg = /^\s*</;
  * Function that attempts to guess the content type for a value.
  * Supports: text/plain, text/html, application/octet-stream, application/json
  *
- * @param data The data to check the "Content-Type" of.
- *
  * @example
  * check({ x: 1 }) // "application/json; charset=UTF-8"
+ *
+ * @param data The data to check the "Content-Type" of.
  */
 export function check(data: any): string | undefined {
   const type = typeof data;
